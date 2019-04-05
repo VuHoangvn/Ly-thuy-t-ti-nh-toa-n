@@ -1,0 +1,24 @@
+﻿File DFA_1.py:
+    - thực hiện yêu cầu bài toán 1
+    - chương trình sử dụng ngôn ngữ lập trình python
+    - cấu trúc:
+        + import thư viện xml.etree.ElementTree để đọc xml
+        + yêu câu nhập tên file và từ cần kiểm tra
+        + tạo danh sách các list để lưu trữ các điểm, di chuyển, nút đầu , nút cuối
+        + thêm vào các list
+        + khởi tạo trạng thái đầu là nút bắt đầu
+        + kiểm tra từ: nếu trạng thái đầu ra có trong danh sách các nút kết thúc đưa ra màn hình yes
+        nếu không đưa ra No
+
+File DFA_2:
+    - thực hiện chương trình 2
+    - ngôn ngữ python
+    - cấu trúc:
+        + nhập vào 2 file jff
+        + hàm readFile() đọc dữ liệu và đưa ra các list, tương tự DFA_1.py
+        + hàm makeNewFile() đọc các giá trị cho ngôn ngữ mới
+        + hàm prettify() đưa ra định dạng jff
+        + hàm write_jff_file() tạo file 
+
+Lưu ý:+ khi mở ra các note ở cùng 1 vị trí, kéo các note ra để thấy được các di chuyển của note. 
+      + bài làm với các đỉnh id bắt đầu từ 0

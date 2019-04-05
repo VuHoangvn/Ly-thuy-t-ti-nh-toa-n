@@ -1,0 +1,97 @@
+<?xml version="1.0" ?>
+<structure>
+	<type>fa</type>
+	<automaton>
+		<!--This list of states.-->
+		<state id="0" name="{'1q0'}">
+			<x>10</x>
+			<y>20</y>
+			<initial/>
+		</state>
+		<state id="1" name="{'1q1'}">
+			<x>10</x>
+			<y>20</y>
+		</state>
+		<state id="2" name="{'1q2'}">
+			<x>10</x>
+			<y>20</y>
+			<final/>
+		</state>
+		<state id="3" name="{'2q0'}">
+			<x>10</x>
+			<y>20</y>
+			<final/>
+		</state>
+		<state id="4" name="{'2q1'}">
+			<x>10</x>
+			<y>20</y>
+			<final/>
+		</state>
+		<state id="5" name="{'2q2'}">
+			<x>10</x>
+			<y>20</y>
+			<final/>
+		</state>
+		<!--This list of transitions.-->
+		<transition>
+			<from>1</from>
+			<to>1</to>
+			<read>a</read>
+		</transition>
+		<transition>
+			<from>2</from>
+			<to>2</to>
+			<read>a</read>
+		</transition>
+		<transition>
+			<from>0</from>
+			<to>1</to>
+			<read>a</read>
+		</transition>
+		<transition>
+			<from>0</from>
+			<to>3</to>
+			<read>b</read>
+		</transition>
+		<transition>
+			<from>2</from>
+			<to>5</to>
+			<read>b</read>
+		</transition>
+		<transition>
+			<from>1</from>
+			<to>5</to>
+			<read>b</read>
+		</transition>
+		<transition>
+			<from>3</from>
+			<to>3</to>
+			<read>b</read>
+		</transition>
+		<transition>
+			<from>5</from>
+			<to>5</to>
+			<read>b</read>
+		</transition>
+		<transition>
+			<from>4</from>
+			<to>5</to>
+			<read>b</read>
+		</transition>
+		<transition>
+			<from>4</from>
+			<to>1</to>
+			<read>a</read>
+		</transition>
+		<transition>
+			<from>5</from>
+			<to>2</to>
+			<read>a</read>
+		</transition>
+		<transition>
+			<from>3</from>
+			<to>1</to>
+			<read>a</read>
+		</transition>
+	</automaton>
+</structure>

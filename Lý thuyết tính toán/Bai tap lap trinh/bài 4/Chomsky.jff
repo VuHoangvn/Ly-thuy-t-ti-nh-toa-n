@@ -1,0 +1,8 @@
+<?xml version="1.0" ?>
+<structure>
+	<type>fa</type>
+	<automaton>
+		<!--This list of states.-->
+		<!--This list of transitions.-->
+	</automaton>
+</structure>
