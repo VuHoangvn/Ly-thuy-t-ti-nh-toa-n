@@ -12,11 +12,21 @@ from xml.dom import minidom
 
 g_filename = input("Enter the first file name: file = ")
 
-#point, trans, final, initial
+## point, trans, final, initial
 g_file = [[], [], [], [], g_filename]
 chomsky_file = [[], [], [], [], 'Chomsky.jff']
 
+## final_point and non_final_point
 
+final_point = []
+non_final_point = []
+
+## save grammar
+
+grammar = []
+
+qloop = None
+start_point = None
 ##
 ## read jff input file
 ##
@@ -60,16 +70,85 @@ def readFile(file):
 
     file = [point, trans, final, initial, file[4]]
 
-    print(file[0])
-    print('-------------')
-    print(file[1])
-    print('-------------')
-    print(file[2])
-    print('-------------')
-    print(file[3])
-    print('-------------')
-    print(file[4])
-    print('-------------')
+    # print(file[0])
+    # print('-------------')
+    # print(file[1])
+    # print('-------------')
+    # print(file[2])
+    # print('-------------')
+    # print(file[3])
+    # print('-------------')
+    # print(file[4])
+    # print('-------------')
+
+
+
+##
+## get derivative
+##
+
+def getDerevative(qloop,start, file, derivative):
+    derivative_of_start = []
+    for tran in file[1]:
+        
+        
+        if(tran[3] == start):
+            if(tran[1] == qloop):
+                derivative_of_start.append(tran[4])   
+                if([start, derivative_of_start] not in derivative): 
+                    derivative.append([start, derivative_of_start])
+                derivative_of_start = []
+                continue
+            derivative_of_start.append(tran[4])
+            getElement(qloop, tran, file, derivative_of_start)
+    if([start, derivative_of_start] not in derivative):    
+        derivative.append([start, derivative_of_start])
+
+def getElement(qloop, tran, file, derivative_of_start):
+     if(tran[1] == qloop):
+         return derivative_of_start
+     for trans in file[1]:
+         if(trans[0] == tran[1]):
+             derivative_of_start.append(trans[4])
+             getElement(qloop, trans, file, derivative_of_start)
+             break
+
+
+##
+## get the grammar
+##
+
+def getGrammar(file, gram, final, non_final):
+    
+    for tran in file[1]:
+        if(tran[4] == '$'):
+            for t in file[1]:
+                if(t[0] == tran[1]):
+                    qloop = t[1]
+                    start_point = t[4]
+        
+
+    for tran in file[1]:
+        if(tran[4] == start_point or tran[4] == '$'):
+            continue
+        if(tran[4] != None and tran[4] not in non_final):
+            non_final.append(tran[3])
+
+    for tran in file[1]:
+        if(tran[4] == start_point or tran[4] == '$'):
+            continue
+        if(tran[4] == None and tran[4] not in final and tran[4] not in non_final):
+            final.append(tran[3])
+        
+            
+    for tran in file[1]:
+        
+
+        if(tran[0] == qloop and tran[3] in non_final_point):
+            getDerevative(qloop, tran[3], file, gram)
+
+    print(gram)
+
 
 ##
 ## print to jff file
@@ -138,8 +217,8 @@ def write_jff_file(file):
 
 def main():
     readFile(g_file)
-
-    write_jff_file(chomsky_file)
+    getGrammar(g_file, grammar, final_point, non_final_point)
+    ##write_jff_file(chomsky_file)
 
 
 
