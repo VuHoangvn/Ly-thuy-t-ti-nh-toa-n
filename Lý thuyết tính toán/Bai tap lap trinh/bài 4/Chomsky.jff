@@ -1,8 +1,84 @@
 <?xml version="1.0" ?>
 <structure>
-	<type>fa</type>
-	<automaton>
-		<!--This list of states.-->
-		<!--This list of transitions.-->
-	</automaton>
+	<type>grammar</type>
+	<production>
+		<left>S</left>
+		<right>aB</right>
+	</production>
+	<production>
+		<left>B</left>
+		<right>b</right>
+	</production>
+	<production>
+		<left>S</left>
+		<right>a</right>
+	</production>
+	<production>
+		<left>S</left>
+		<right>SA</right>
+	</production>
+	<production>
+		<left>S</left>
+		<right>AS</right>
+	</production>
+	<production>
+		<left>S0</left>
+		<right>aB</right>
+	</production>
+	<production>
+		<left>S0</left>
+		<right>a</right>
+	</production>
+	<production>
+		<left>S0</left>
+		<right>SA</right>
+	</production>
+	<production>
+		<left>S0</left>
+		<right>AS</right>
+	</production>
+	<production>
+		<left>A</left>
+		<right>b</right>
+	</production>
+	<production>
+		<left>A</left>
+		<right>aB</right>
+	</production>
+	<production>
+		<left>A</left>
+		<right>a</right>
+	</production>
+	<production>
+		<left>A</left>
+		<right>SA</right>
+	</production>
+	<production>
+		<left>A</left>
+		<right>AS</right>
+	</production>
+	<production>
+		<left>U0</left>
+		<right>['a']</right>
+	</production>
+	<production>
+		<left>U1</left>
+		<right>['b']</right>
+	</production>
+	<production>
+		<left>S</left>
+		<right>['A', 'A0']</right>
+	</production>
+	<production>
+		<left>S0</left>
+		<right>['A', 'A0']</right>
+	</production>
+	<production>
+		<left>A</left>
+		<right>['A', 'A0']</right>
+	</production>
+	<production>
+		<left>A0</left>
+		<right>SA</right>
+	</production>
 </structure>
